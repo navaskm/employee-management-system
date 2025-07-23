@@ -59,22 +59,14 @@ const TaskList = () => {
 
       {anEmployee?.tasks?.map((elem,i:number)=>{
 
-        if(elem.newTask){
-          return <NewTask key={i} data={elem}/>
-        }
+        if(elem.newTask) return <NewTask key={i} data={elem}/>
 
-        if(elem.active){
-          return <AcceptTask key={i} data={elem}/>
-        }
+        if(elem.active) return <AcceptTask key={i} data={elem}/>
 
-        if(elem.failed){
-          return <FailedTask key={i} data={elem}/>
-        }
+        if(elem.failed) return <FailedTask key={i} data={elem}/>
 
-        if(elem.completed){
-          return <CompleteTask key={i} data={elem}/>
-        }
-
+        if(elem.completed) return <CompleteTask key={i} data={elem}/>
+        
         return null;
 
       })}
