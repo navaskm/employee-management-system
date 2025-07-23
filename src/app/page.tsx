@@ -75,7 +75,7 @@ export default function Home() {
   
   // if user already login
   useEffect(()=>{
-    if(userProfile.email === 'admin@me.com' && userProfile.password === '123'){
+    if(userProfile.email === 'admin@example.com' && userProfile.password === '123'){
     router.push('/Admin');
     }else if(userProfile.password === '123'){
       const employeeAvailable = allEmployeesOfCompany.find((e:Employee)=>userProfile.email === e.email && e.password === userProfile.password)
