@@ -88,7 +88,7 @@ export default function Home() {
   // login button click at the handle(this function pass in to login component)
   const handleLogin = (email:string,password:string)=>{
 
-    if(email === 'admin@me.com' && password === "123"){
+    if(email === 'admin@example.com' && password === "123"){
       router.push('/Admin');
 
     }else if (allEmployeesOfCompany.find((e:Employee)=>email === e.email && e.password === password)){
