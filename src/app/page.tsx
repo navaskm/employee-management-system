@@ -95,7 +95,16 @@ export default function Home() {
       router.push('/Employee');
 
     }else{
-      alert('Invalid email or password. Please check your credentials and try again.');
+      //alert('Invalid email or password. Please check your credentials and try again.');
+       alert(
+        'Invalid email or password. Please check your credentials and try again.\n\n' +
+        'To access the Employee page, use:\n' +
+        'Email: employee5@example.com\n' +
+        'Password: 123\n\n' +
+        'To access the Admin page, use:\n' +
+        'Email: admin@example.com\n' +
+        'Password: 123'
+      );
     }
 
     // ser user in localStorage

@@ -14,8 +14,8 @@ function Login({handleLogin}:LoginProps) {
     event.preventDefault();
 
     handleLogin(email,password);
-    setEmail('');
-    setPassword('');
+    // setEmail('');
+    // setPassword('');
   }
 
   return (
