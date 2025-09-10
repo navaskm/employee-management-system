@@ -32,7 +32,7 @@ type Employee = {
   tasks: Task[];
 };
 
-const initialState = {
+export const initialState = {
   employees : [
   {
     id: 1,
