@@ -426,10 +426,21 @@ const companySlice = createSlice({
     },
     // add task to an employee
     addTaskToEmployee(state, action) {
-      const { firstName, task } = action.payload;
+      const { firstName, task, id } = action.payload;
 
-      const employee = state.employees.find(e => e.firstName === firstName);
-      if (employee) {
+      if(id){
+        const employee = state.employees.find(e => e.id === id);
+        if (employee) {
+          taskAssignToEmployee(employee)
+        }
+      }else{
+        const employee = state.employees.find(e => e.firstName === firstName);
+        if (employee) {
+          taskAssignToEmployee(employee)
+        }
+      };
+
+      function taskAssignToEmployee(employee:Employee) {
         employee.tasks.push(task);
         employee.taskCount.newTask ++;
 
@@ -437,7 +448,8 @@ const companySlice = createSlice({
         if (typeof window !== "undefined") {
           localStorage.setItem("employeesData", JSON.stringify(state.employees));
         }
-      }
+      };
+      
     },
 
     // admin wrong write to employee name

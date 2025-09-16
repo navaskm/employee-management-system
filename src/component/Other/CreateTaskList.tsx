@@ -14,6 +14,7 @@ const CreateTaskList = () => {
   const [category, setCategory] = useState<string>('');
   const [taskDescription, setTaskDescription] = useState<string>('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [id, setId] = useState<number>();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // admin task assign to employee name is wrong
@@ -55,6 +56,7 @@ const CreateTaskList = () => {
 
     dispatch(addTaskToEmployee({
       firstName: taskAssignTo,
+      id,
       task,
     }));
 
@@ -72,9 +74,10 @@ const CreateTaskList = () => {
   );
 
   // select employee name from suggestion list
-  const handleSelect = (name: string) => {
+  const handleSelect = (name: string, id:number) => {
     setTaskAssignTo(name);
     setShowSuggestions(false);
+    setId(id);
   };
 
   return (
@@ -153,7 +156,7 @@ const CreateTaskList = () => {
                     filteredEmployees.map((emp) => (
                         <li
                           key={emp.id}
-                          onClick={() => handleSelect(emp.firstName)}
+                          onClick={() => handleSelect(emp.firstName, emp.id)}
                           className="px-2 py-1 text-sm cursor-pointer hover:bg-gray-100"
                         >
                           {emp.firstName}
