@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
-
-type LoginProps = {
-  handleLogin: (email: string, password: string) => void;
-};
+import { LoginProps } from "@/types/types";
 
 function Login({handleLogin}:LoginProps) {
 
