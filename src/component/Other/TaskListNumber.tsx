@@ -1,38 +1,7 @@
 "use client"
 import { useEffect,useState } from "react";
 import { useAppSelector } from "@/app/lib/hooks";
-
-type LoggedInEmployee = {
-  email: string;
-  password: string;
-};
-
-type Task = {
-  taskTitle: string;
-  taskDescription: string;
-  taskDate: string;
-  category: string;
-  active: boolean;
-  newTask: boolean;
-  completed: boolean;
-  failed: boolean;
-};
-
-type TaskCount = {
-  active: number;
-  newTask: number;
-  completed: number;
-  failed: number;
-};
-
-type Employee = {
-  id: number;
-  firstName: string;
-  email: string;
-  password: string;
-  taskCount: TaskCount;
-  tasks: Task[];
-};
+import { LoggedInEmployee, Employee } from "@/types/types";
 
 const TaskListNumber = () => {
 
