@@ -3,11 +3,7 @@ import { useState,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { setUser,hydrateUser,hydrateAddTaskToEmployee } from "@/app/lib/features/company/companySlice";
 import { useAppSelector,useAppDispatch } from "@/app/lib/hooks";
-
-type LoggedInEmployee = {
-  email: string;
-  password: string;
-};
+import { LoggedInEmployee } from "@/types/types";
 
 const Header = () => {
 
@@ -15,7 +11,7 @@ const Header = () => {
   const router = useRouter();
 
   const allEmployeesOfCompany = useAppSelector((state)=>state.company.employees);
-    const employee:LoggedInEmployee = useAppSelector((state)=>state.company.user);
+  const employee:LoggedInEmployee = useAppSelector((state)=>state.company.user);
 
   const [userName,setUserName] = useState('');
 
