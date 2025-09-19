@@ -2,17 +2,7 @@
 
 import { useAppDispatch } from "@/app/lib/hooks";
 import { handleAcceptButton } from "@/app/lib/features/company/companySlice";
-
-type Task = {
-  taskTitle: string;
-  taskDescription: string;
-  taskDate: string;
-  category: string;
-  active: boolean;
-  newTask: boolean;
-  completed: boolean;
-  failed: boolean;
-};
+import { Task } from "@/types/types";
 
 const NewTask = ({ data }: { data: Task }) => {
 

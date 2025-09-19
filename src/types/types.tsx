@@ -11,7 +11,7 @@ export type LoggedInEmployee = {
 
 // employee page types
 
-type Task = {
+export type Task = {
   taskTitle: string;
   taskDescription: string;
   taskDate: string;

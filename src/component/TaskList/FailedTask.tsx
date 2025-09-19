@@ -1,13 +1,4 @@
-type Task = {
-  taskTitle: string;
-  taskDescription: string;
-  taskDate: string;
-  category: string;
-  active: boolean;
-  newTask: boolean;
-  completed: boolean;
-  failed: boolean;
-};
+import { Task } from "@/types/types";
 
 const FailedTask = ({data}:{ data: Task }) => {
   return (
