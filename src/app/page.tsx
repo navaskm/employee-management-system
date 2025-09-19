@@ -2,43 +2,11 @@
 
 import { lazy, useEffect, Suspense } from "react";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/app/lib/hooks";
+import { useAppDispatch,useAppSelector } from "@/app/lib/hooks";
 import { setUser,hydrateUser,hydrateAddTaskToEmployee } from "@/app/lib/features/company/companySlice";
+import { LoggedInEmployee, Employee } from "@/types/types";
 import Loading from "./loading";
 const Login = lazy(()=> import('@/component/Auth/Login'));
-import { useAppSelector } from "./lib/hooks";
-
-type User = {
-  email: string;
-  password: string;
-};
-
-type Task = {
-  taskTitle: string;
-  taskDescription: string;
-  taskDate: string;
-  category: string;
-  active: boolean;
-  newTask: boolean;
-  completed: boolean;
-  failed: boolean;
-};
-
-type TaskCount= {
-  active: number;
-  newTask: number;
-  completed: number;
-  failed: number;
-};
-
-type Employee = {
-  id: number;
-  firstName: string;
-  email: string;
-  password: string;
-  tasks: Task[];
-  taskCount: TaskCount;
-};
 
 export default function Home() {
 
@@ -46,7 +14,7 @@ export default function Home() {
   const router = useRouter();
   
   const allEmployeesOfCompany = useAppSelector((state)=>state.company.employees);
-  const userProfile:User = useAppSelector((state)=>state.company.user);
+  const userProfile:LoggedInEmployee = useAppSelector((state)=>state.company.user);
 
   // first load time dat store in localStorage(user(employee or admin) and all employees of company)
   useEffect(() => {
@@ -57,7 +25,7 @@ export default function Home() {
 
       // set user in localStorage
       if (storedUser) {
-        const logOut: User = JSON.parse(storedUser);
+        const logOut: LoggedInEmployee = JSON.parse(storedUser);
         if (logOut?.email && logOut?.password) {
           dispatch(hydrateUser(logOut));
         }
